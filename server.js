@@ -42,3 +42,12 @@ bot.command({name:"rank",
 code:`$title[Seviye kartı]$description[<@$mentioned[1;yes]>'nın Seviye kartı
 Seviye: $getUserVar[lvl;$mentioned[1;yes]]
 xp: $getUserVar[xp;$mentioned[1;yes]]]`})
+bot.command({name:"prefix",
+code:`Prefix başarı ile \`$message[1]\` olarak ayarlandı!
+$setServerVar[prefix;$message[1]]
+$argsCheck[>1;Prefixin ne olmasını istersin?] 
+$onlyIf[$hasPerms[$authorID;admin]!=false;Bu komutu lullanmak için \`Yönetici\` yetkin olmalı!] `})
+bot.command({name: "eval", 
+code: `$eval[$message]
+$argsCheck[>1;Bir kod girsen?]
+$onlyForIDs[IDniz;Sahibim değilsin.]`})
